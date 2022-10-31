@@ -9,11 +9,11 @@ print()
 l=de.stegnoimg()
 de.DiviIn3(l)
 
-os.remove("CryptoCode\F2\mergeenc.bin")
+os.remove("CryptoCode1\F2\mergeenc.bin")
 
 desc.stegnoimg()
 
-os.remove("CryptoCode\s1.png")
+os.remove("CryptoCode1\s1.png")
 
 desc.keygen()
 desc.aesdec()
