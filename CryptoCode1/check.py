@@ -1,5 +1,5 @@
-f1=open('CryptoCode\\UploadF\\data.txt')
-f2=open('CryptoCode\\UploadF\\origin.txt')
+f1=open('CryptoCode1\\UploadF\\data.txt')
+f2=open('CryptoCode1\\UploadF\\origin.txt')
 
 s=''
 for i in f1:
