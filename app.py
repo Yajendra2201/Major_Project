@@ -400,7 +400,7 @@ def encryption():
 
             ba=os.getcwd()
 
-            loc=ba+"\\CryptoCode\\UploadF\\"
+            loc=ba+"\\CryptoCode1\\UploadF\\"
             
             file.save(os.path.join(loc, ed))
             file2.save(os.path.join(loc,ei))
@@ -441,7 +441,7 @@ def encryption():
 
             print("Encryption process completed")
 
-            ftk=open(ba+"\\CryptoCode\\encFile\\confidential.txt","w")
+            ftk=open(ba+"\\CryptoCode1\\encFile\\confidential.txt","w")
             ftk.write("This is the validation token password of regenerating the key if key is lost for doc "+s+".bin\n Please don't share this file or token password.\nYour password token is: -\n"+k[1])
             ftk.close()
 
@@ -476,11 +476,11 @@ def encryption():
                   zf.write(file, os.path.basename(file))
             stream.seek(0)
 
-            os.remove("CryptoCode\\UploadF\\"+dnam)
-            os.remove("CryptoCode\\UploadF\\"+imna)
-            os.remove("CryptoCode\\encFile\\"+s+".bin")
-            os.remove("CryptoCode\\encFile\\"+s+".png")
-            os.remove("CryptoCode\\encFile\\confidential.txt")
+            os.remove("CryptoCode1\\UploadF\\"+dnam)
+            os.remove("CryptoCode1\\UploadF\\"+imna)
+            os.remove("CryptoCode1\\encFile\\"+s+".bin")
+            os.remove("CryptoCode1\\encFile\\"+s+".png")
+            os.remove("CryptoCode1\\encFile\\confidential.txt")
 
             return send_file(stream,as_attachment=True,attachment_filename='EncryptionDocs.zip')
 
@@ -520,7 +520,7 @@ def decryption():
 
             ba=os.getcwd()
 
-            loc=ba+"\\CryptoCode\\UploadFDec\\"
+            loc=ba+"\\CryptoCode1\\UploadFDec\\"
         
             file.save(os.path.join(loc, ed))
             file2.save(os.path.join(loc,ei))
@@ -588,7 +588,7 @@ def decryption():
             db.session.add(loD)
             db.session.commit()
 
-            loc=ba+"\\CryptoCode\\decFile\\"
+            loc=ba+"\\CryptoCode1\\decFile\\"
            
             stream = BytesIO()
             with ZipFile(stream, 'w') as zf:
@@ -596,9 +596,9 @@ def decryption():
                   zf.write(file, os.path.basename(file))
             stream.seek(0)
 
-            os.remove("CryptoCode\\uploadFDec\\"+fns+".bin")
-            os.remove("CryptoCode\\uploadFDec\\"+fnsm+".png")
-            os.remove("CryptoCode\\decFile\\"+fns+".txt")
+            os.remove("CryptoCode1\\uploadFDec\\"+fns+".bin")
+            os.remove("CryptoCode1\\uploadFDec\\"+fnsm+".png")
+            os.remove("CryptoCode1\\decFile\\"+fns+".txt")
 
             return send_file(stream,as_attachment=True,attachment_filename='DecrytpionDocs.zip')
 
@@ -775,12 +775,12 @@ def regeneratekey(file_id):
         c=s.decode('utf-8')
         
         ba=os.getcwd()
-        lo=ba+"\\CryptoCode\\KeyReg\\img.jpg"
+        lo=ba+"\\CryptoCode1\\KeyReg\\img.jpg"
 
         secret = lsb.hide(lo,c)
         im=f.Uniqueid[11:]
     
-        loc=ba+"\\CryptoCode\\KeyRegC\\"+im+".png"
+        loc=ba+"\\CryptoCode1\\KeyRegC\\"+im+".png"
         secret.save(loc)
 
         d=datetime.today()
@@ -795,7 +795,7 @@ def regeneratekey(file_id):
         db.session.delete(c)
         db.session.commit()
            
-        loc=ba+"\\CryptoCode\\KeyRegC\\"
+        loc=ba+"\\CryptoCode1\\KeyRegC\\"
         stream = BytesIO()
         with ZipFile(stream, 'w') as zf:
             for file in glob(os.path.join(loc, '*.*')):
