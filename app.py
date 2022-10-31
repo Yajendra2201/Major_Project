@@ -3,15 +3,15 @@ from flask_sqlalchemy import SQLAlchemy
 import hashlib
 
 #import for encryption
-from CryptoCode import textfiletobinaryfile as tfb
-from CryptoCode import breakintothreeparts as b3t
-from CryptoCode import enc
-from CryptoCode import mergeenc as mge
+from CryptoCode1 import textfiletobinaryfile as tfb
+from CryptoCode1 import breakintothreeparts as b3t
+from CryptoCode1 import enc
+from CryptoCode1 import mergeenc as mge
 
 #import for decryption
-from CryptoCode import divideenc as de
-from CryptoCode import desc
-from CryptoCode import merge as m
+from CryptoCode1 import divideenc as de
+from CryptoCode1 import desc
+from CryptoCode1 import merge as m
 import os
 
 #for file upload and download
