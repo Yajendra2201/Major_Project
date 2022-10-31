@@ -163,7 +163,8 @@ sqlparse==0.4.2
 stack-data==0.4.0
 stegano==0.10.2
 sympy==1.11.1
-
+tkinter
+turtle
 termcolor==2.0.1
 terminado==0.15.0
 threadpoolctl==3.1.0
