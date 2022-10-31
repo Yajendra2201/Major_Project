@@ -119,7 +119,6 @@ def users():
     else:
         return redirect("/admin/")
 
-
 @app.route("/admin/userprofile/<string:email>")
 def pro(email):
     if 'un' in session:
@@ -443,7 +442,7 @@ def encryption():
             print("Encryption process completed")
 
             ftk=open(ba+"\\CryptoCode\\encFile\\confidential.txt","w")
-            ftk.write("This is the validation token password of regenerating the key if key is lost for doc "+s+".txt\n Please don't share this file or token password.\nYour password token is: -\n"+k[1])
+            ftk.write("This is the validation token password of regenerating the key if key is lost for doc "+s+".bin\n Please don't share this file or token password.\nYour password token is: -\n"+k[1])
             ftk.close()
 
             ks=""
@@ -814,6 +813,17 @@ def deleteresponse(file_id):
     # if em !="" and pa !="":   
     if 'un' in session:
         c=contact.query.filter_by(file_id=file_id).first()
+
+        f=documentT.query.filter_by(Uniqueid=file_id).first()
+        
+        d=datetime.today()
+        s=d.strftime("%d-%m-%Y %I-%M-%S %p")
+
+        lui=s+"_"+c.file_id
+        loD=LogT(ObjectId=lui,file_id=c.file_id,file_name="None",operation=c.response_status,date_time=s,owner_no="None",user_no=session['phone'])
+        db.session.add(loD)
+        db.session.commit()
+
         db.session.delete(c)
         db.session.commit()
         return redirect("/requestsresponse")
