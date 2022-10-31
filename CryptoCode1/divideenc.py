@@ -4,7 +4,7 @@ import os
 def stegnoimg(use,imn):   
     print("Stegnographic process is in progress..............")
     
-    ilo="CryptoCode\\UploadFdec\\"+imn+".png"
+    ilo="CryptoCode1\\UploadFdec\\"+imn+".png"
 
     clear_message = lsb.reveal(ilo)
     s=clear_message.split(' ')
@@ -38,7 +38,7 @@ def DiviIn3(l,n):
     file_number = 0
     print(n)
     
-    lo='CryptoCode\\uploadFDec\\'+n+'.bin'
+    lo='CryptoCode1\\uploadFDec\\'+n+'.bin'
 
     with open(lo,'rb') as f:
         while file_number<3:
